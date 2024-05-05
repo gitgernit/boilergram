@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "boilergram"
+version = "0.1.0"
+description = "boilergram is a superset tool that helps you develop your aiogram bots with ease using a django-like declarative approach"
+authors = ["gitgernit <petr.zakharov.anton@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["asyncio", "telegram", "aiogram"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiogram = "^3.5.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+flake8 = "^7.0.0"
+
+[tool.poetry.urls]
+"Homepage" = "https://github.com/gitgernit/boilergram"
+"Issues" = "https://github.com/gitgernit/boilergram/issues"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
