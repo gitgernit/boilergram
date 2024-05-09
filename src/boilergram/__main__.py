@@ -1,5 +1,9 @@
-import boilergram.core.management.app
+from boilergram.core.management.app import app
 
 
 def main():
-    boilergram.core.management.app.app()
+    app()
+
+
+if __name__ == '__main__':
+    main()
