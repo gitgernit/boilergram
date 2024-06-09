@@ -15,14 +15,20 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.11"
 aiogram = "^3.5.0"
+typer = "^0.12.3"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
 flake8 = "^7.0.0"
+ruff = "^0.4.3"
+isort = "^5.13.2"
 
 [tool.poetry.urls]
 "Homepage" = "https://github.com/gitgernit/boilergram"
 "Issues" = "https://github.com/gitgernit/boilergram/issues"
+
+[tool.poetry.scripts]
+boilergram = "boilergram.__main__:main"
 
 [build-system]
 requires = ["poetry-core"]
