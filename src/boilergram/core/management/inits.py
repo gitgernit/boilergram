@@ -9,15 +9,15 @@ def copy_bot_template(target_dir: pathlib.Path) -> None:
 
 
 def rename_bot_template(template_parent_dir: pathlib.Path,
-                        bot_name: str):
+                        bot_name: str) -> None:
     bot_path = template_parent_dir / 'bot'
-    bot_path = bot_path.rename(bot_name)
+    bot_path = bot_path.rename(bot_path.with_name(bot_name))
 
     inner_bot_path = bot_path / 'bot'
-    inner_bot_path.rename(bot_path / bot_name)
+    inner_bot_path.rename(inner_bot_path.with_name(bot_name))
 
 
-def create_new_bot(bot_name: str):
+def create_new_bot(bot_name: str) -> None:
     current_path = pathlib.Path.cwd().resolve()
 
     copy_bot_template(current_path)
