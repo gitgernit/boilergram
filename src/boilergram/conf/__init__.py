@@ -1,7 +1,7 @@
 __all__ = ['path_settings']
 
 import pathlib
-import boilergram.conf.paths
+from boilergram.conf import paths
 
 
 class PathSettings:
@@ -9,8 +9,8 @@ class PathSettings:
         self.PACKAGE_ROOT = package_root.resolve()
 
         for setting, value in (
-                (setting, getattr(boilergram.conf.paths, setting))
-                for setting in dir(boilergram.conf.paths)
+                (setting, getattr(paths, setting))
+                for setting in dir(paths)
         ):
             if setting.isupper() and '.' in value:
                 pathlike_value = value.replace('.', '/')
@@ -19,6 +19,9 @@ class PathSettings:
                 )).resolve()
 
                 setattr(self, setting, path_value)
+
+    def __getattr__(self, item) -> pathlib.Path:
+        return super().__getattribute__(self, item)
 
 
 path_settings = PathSettings(pathlib.Path(__file__).parent.parent)
