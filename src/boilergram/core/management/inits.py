@@ -1,7 +1,7 @@
 import shutil
 import pathlib
 
-from boilergram.conf import path_settings
+from boilergram.conf.paths import path_settings
 
 
 def copy_bot_template(target_dir: pathlib.Path) -> None:
