@@ -1,7 +1,7 @@
 from boilergram.core.management.app import app
 
 
-def main():
+def main() -> None:
     app()
 
 
