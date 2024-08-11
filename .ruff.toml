@@ -19,7 +19,7 @@ extend-select = ["F", "E", "W", "C90",
                  "RET", "SLF", "SIM", "TID",
                  "TCH", "ARG", "PTH", "ERA",
                  "PL", "TRY", "PERF", "RUF"]
-ignore = ["PERF101", "ISC001"]
+ignore = ["ANN101", "PERF101", "ISC001"]
 
 [lint.flake8-quotes]
 inline-quotes = 'single'
