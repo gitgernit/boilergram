@@ -1,4 +1,6 @@
-TOKEN_API = 'TELEGRAM_BOT_API_KEY'
+import os
+
+TOKEN_API = os.getenv('BOILERGRAM_API_KEY')
 
 INSTALLED_APPS = [
     'boilergram.contrib.demo',
