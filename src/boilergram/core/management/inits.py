@@ -10,8 +10,7 @@ def copy_bot_template(target_dir: pathlib.Path) -> None:
     shutil.copytree(template_path, target_dir, dirs_exist_ok=True)
 
 
-def rename_bot_template(bot_parent_dir: pathlib.Path,
-                        bot_name: str) -> None:
+def rename_bot_template(bot_parent_dir: pathlib.Path, bot_name: str) -> None:
     bot_path = bot_parent_dir / 'bot'
     bot_path = bot_path.rename(bot_path.with_name(bot_name))
 
