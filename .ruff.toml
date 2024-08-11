@@ -1,0 +1,32 @@
+extend-exclude = [".github"]
+force-exclude = true
+line-length = 79
+show-fixes = true
+src = ["src"]
+target-version = "py311"
+
+[format]
+quote-style = "single"
+
+[lint]
+extend-select = ["F", "E", "W", "C90",
+                 "N", "UP", "ANN", "ASYNC",
+                 "S", "FBT", "B", "A",
+                 "COM", "C4", "T10", "EM",
+                 "ISC", "LOG", "G", "PIE",
+                 "T20", "PT", "Q", "RSE",
+                 "RET", "SLF", "SIM", "TID",
+                 "TCH", "ARG", "PTH", "ERA",
+                 "PL", "TRY", "PERF", "RUF"]
+ignore = ["Q003", "PERF101"]
+
+[lint.flake8-quotes]
+docstring-quotes = 'single'
+inline-quotes = 'single'
+multiline-quotes = 'single'
+
+[lint.flake8-tidy-imports]
+ban-relative-imports = 'all'
+
+[lint.mccabe]
+max-complexity = 7
