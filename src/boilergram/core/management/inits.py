@@ -1,5 +1,5 @@
-import shutil
 import pathlib
+import shutil
 
 from boilergram.conf.paths import path_settings
 
