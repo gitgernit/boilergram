@@ -143,4 +143,4 @@ feature/linting - Linters and their configurations
 ```
 
 ### That's it
-Im done
+I'm done
