@@ -111,7 +111,7 @@ its community is the official telegram channel -
 ## Bonus
 
 ### Preferred Code Style
-We try to err to the side of bug-prone, well-formatted code.
+We try to err on the side of bug-prone, well-formatted code.
 All the formatting rules are present in boilergram's linters 
 configurations. You can read about most of the rules from 
 [.ruff.toml](.ruff.toml) on [astral](https://docs.astral.sh/ruff/rules/),
