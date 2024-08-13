@@ -1,5 +1,11 @@
 # boilergram
 
+![GitHub License](https://img.shields.io/github/license/gitgernit/boilergram)
+![PyPI - Version](https://img.shields.io/pypi/v/boilergram)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/boilergram)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boilergram)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/gitgernit/boilergram)
+
 ## Introduction
 
 ### What is boilergram?
@@ -15,13 +21,13 @@ and not worry about your project getting messy & unextendable.
 ### What boilergram is and what boilergram isn't
 boilergram is just an additional layer between the developer and
 the actual framework communicating with Telegram. boilergram does
-not in any way modify **[aiogram's](https://github.com/aiogram/aiogram)**
+not in any way modify **[aiogram](https://github.com/aiogram/aiogram)**
 behaviour nor does it change the actual behaviour of your bot.
 
 ## Getting started
 
 ### Requirements
-- Python >=3.8
+- Python >=3.11
 - git
 
 ### Installation
