@@ -6,7 +6,7 @@
 I am thankful to you as to a (potential) contributor, and 
 I am glad that you are reading this. Boilergram 
 was and is being made to help developers develop, and helping 
-eachother is what we should all aspire to.
+each-other is what we should all aspire to.
 
 ### Following contribution rules & standards
 Following the guidelines will generally ease the contributing 
@@ -25,7 +25,7 @@ Any contributions that are in fact not contributions.
 If you are having trouble working with the framework, 
 yet you are not sure that the occurring behaviour is 
 unintended - please, ask for help in other places
-(i.e. official telegram channel @boilergram)
+(i.e. official telegram channel [@boilergram](https://t.me/boilergram))
 
 ## Ground Rules
 
@@ -60,7 +60,7 @@ It is suggested you use an IDE or a text editor of your choice
 when working with boilergram.
 1. Install the latest python version  
     You can use a package manager of your choice or get 
-    the installer from [the official python site](https://ww.python.org),
+    the installer from [the official python site](https://www.python.org),
     e.g.:  
     ```shell
     pacman -S python
@@ -91,8 +91,7 @@ Now you're all set!
 ## Submitting a bug or a feature
 1. Open an issue, follow the template. Done
 
-### Fixing the bug or implementing a feature
-
+### Fixing a bug or implementing a feature
 This applies to any kinds of fixes & enhancements.
 Even if your change is a one-liner, you should still
 follow these steps.
@@ -112,7 +111,6 @@ its community is the official telegram channel -
 ## Bonus
 
 ### Preferred Code Style
-
 We try to err to the side of bug-prone, well-formatted code.
 All the formatting rules are present in boilergram's linters 
 configurations. You can read about most of the rules from 
