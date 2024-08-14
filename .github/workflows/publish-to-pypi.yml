@@ -3,8 +3,6 @@ name: Publish to PyPi
 on:
   release:
     types: [ published ]
-  push:
-    branches: [ feature/ci-cd ]  # Testing purposes
 
 permissions:
   contents: read
@@ -19,8 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Test Github Secrets  # Testing purposes
-        run: echo ${{ secrets.DUMMY }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -34,4 +30,4 @@ jobs:
       - name: Publish to PyPi
         run: poetry publish --build
         env:
-          POETRY_PYPI_TOKEN_BOILERGRAM: ${{ secrets.PYPI_TOKEN }}
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
