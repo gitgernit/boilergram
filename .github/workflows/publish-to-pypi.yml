@@ -4,7 +4,7 @@ on:
   release:
     types: [ published ]
   push:
-    branches: [ feature/ci-cd ] # Testing purposes
+    branches: [ feature/ci-cd ]  # Testing purposes
 
 permissions:
   contents: read
@@ -33,3 +33,5 @@ jobs:
         run: poetry publish --build
         env:
           POETRY_PYPI_TOKEN_BOILERGRAM: ${{ secrets.PYPI_TOKEN }}
+      - name: Test Github Secrets  # Testing purposes
+        run: echo ${{ secrets.DUMMY }}
