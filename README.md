@@ -4,7 +4,6 @@
 ![PyPI - Version](https://img.shields.io/pypi/v/boilergram)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/boilergram)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boilergram)
-![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/gitgernit/boilergram)
 
 ## Introduction
 
