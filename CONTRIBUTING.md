@@ -73,12 +73,12 @@ when working with boilergram.
     cd boilergram
     ```
 
-3. Install poetry and boilergram's dependencies
+3. Install uv and boilergram's dependencies
     ```shell
-    pip install poetry
+    pip install uv
     ```
     ```shell
-    poetry install   
+    uv sync
     ```
 
 4. Set up pre-commit hooks
