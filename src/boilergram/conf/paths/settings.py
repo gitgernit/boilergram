@@ -24,5 +24,5 @@ class PathSettings:
 
                 setattr(self, setting, path_value)
 
-    def __getattr__(self, item: str) -> pathlib.Path:
-        return super().__getattribute__(self, item)
+    def __getattribute__(self, item: str) -> pathlib.Path:
+        return super().__getattribute__(item)
