@@ -10,16 +10,23 @@ quote-style = "single"
 skip-magic-trailing-comma = false
 
 [lint]
-extend-select = ["F", "E", "W", "C90",
-                 "N", "UP", "ANN", "ASYNC",
-                 "S", "FBT", "B", "A",
-                 "COM", "C4", "T10", "EM",
-                 "ISC", "LOG", "G", "PIE",
-                 "T20", "PT", "Q", "RSE",
-                 "RET", "SLF", "SIM", "TID",
-                 "TCH", "ARG", "PTH", "ERA",
-                 "PL", "TRY", "PERF", "RUF"]
+extend-select = [
+    "F", "E", "W", "C90",
+    "N", "UP", "ANN", "ASYNC",
+    "S", "FBT", "B", "A",
+    "COM", "C4", "T10", "EM",
+    "ISC", "LOG", "G", "PIE",
+    "T20", "PT", "Q", "RSE",
+    "RET", "SLF", "SIM", "TID",
+    "TCH", "ARG", "PTH", "ERA",
+    "PL", "TRY", "PERF", "RUF"
+]
 ignore = ["ANN101", "PERF101", "ISC001"]
+
+[lint.extend-per-file-ignores]
+"tests/**/*.py" = [
+    "S101" # Allow assert statements
+]
 
 [lint.flake8-quotes]
 inline-quotes = 'single'
