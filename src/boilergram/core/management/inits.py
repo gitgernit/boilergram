@@ -16,14 +16,3 @@ def rename_bot_template(bot_parent_dir: pathlib.Path, bot_name: str) -> None:
 
     inner_bot_path = bot_path / 'bot'
     inner_bot_path.rename(inner_bot_path.with_name(bot_name))
-
-
-def create_new_bot(bot_name: str) -> None:
-    current_path = pathlib.Path.cwd().resolve()
-
-    copy_bot_template(current_path)
-    rename_bot_template(current_path, bot_name)
-
-
-if __name__ == '__main__':
-    create_new_bot('testbot')
