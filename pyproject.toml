@@ -35,4 +35,5 @@ dev-dependencies = [
     "pre-commit >= 3.8.0",
     "ruff >= 0.5.7",
     "isort >= 5.13.2",
+    "twine>=5.1.1",
 ]
