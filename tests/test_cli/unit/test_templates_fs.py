@@ -20,14 +20,20 @@ DESIRED_RENAMED_PATHS = [
 
 
 class TestTemplatesFilesystem:
-    def test_copy_bot_template(self, template_path: pathlib.Path) -> None:
-        copy_bot_template(template_path)
+    def test_copy_bot_template(
+        self,
+        temporary_template_path: pathlib.Path,
+    ) -> None:
+        copy_bot_template(temporary_template_path)
 
         for path in DESIRED_PATHS:
-            assert (template_path / path).exists()
+            assert (temporary_template_path / path).exists()
 
-    def test_rename_bot_template(self, template_path: pathlib.Path) -> None:
-        rename_bot_template(template_path, 'rbot')
+    def test_rename_bot_template(
+        self,
+        temporary_template_path: pathlib.Path,
+    ) -> None:
+        rename_bot_template(temporary_template_path, 'rbot')
 
         for path in DESIRED_RENAMED_PATHS:
-            assert (template_path / path).exists()
+            assert (temporary_template_path / path).exists()
