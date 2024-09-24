@@ -25,7 +25,9 @@ ignore = ["ANN101", "PERF101", "ISC001"]
 
 [lint.extend-per-file-ignores]
 "tests/**/*.py" = [
-    "S101" # Allow assert statements
+    "S101", # Allow assert statements
+    "ARG",
+    "FBT"
 ]
 
 [lint.flake8-quotes]
