@@ -12,8 +12,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ '3.11' ]
+        python-version: [ '3.11', '3.12' ]
         uv-version: [ '0.4.15' ]
+    outputs:
+      python-version: ${{ matrix.python-version }}
+      uv-version: ${{ matrix.uv-version }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -58,11 +61,11 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ needs.setup.outputs.python-version }}
       - name: Install uv
         uses: astral-sh/setup-uv@v3
         with:
-          version: ${{ matrix.uv-version }}
+          version: ${{ needs.setup.outputs.uv-version }}
           enable-cache: true
           cache-dependency-glob: "uv.lock"
       - name: Publish to Fake PyPi
@@ -88,11 +91,11 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ needs.setup.outputs.python-version }}
       - name: Install uv
         uses: astral-sh/setup-uv@v3
         with:
-          version: ${{ matrix.uv-version }}
+          version: ${{ needs.setup.outputs.uv-version }}
           enable-cache: true
           cache-dependency-glob: "uv.lock"
       - name: Publish to PyPi
