@@ -22,6 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Enable caching
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: ${{ runner.os }}-uv-${{ github.workflow}}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-${{ github.workflow }}-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -40,6 +47,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: ${{ runner.os }}-uv-${{ github.workflow}}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-${{ github.workflow }}-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -48,5 +62,10 @@ jobs:
         uses: astral-sh/setup-uv@v3
         with:
           version: ${{ matrix.uv-version }}
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+      - name: Install dependencies
+        run:
+          uv sync --all-extras --dev
       - name: Run pytest
         run: uv run pytest
