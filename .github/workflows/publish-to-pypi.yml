@@ -14,13 +14,27 @@ jobs:
       matrix:
         python-version: [ '3.11', '3.12' ]
         uv-version: [ '0.4.15' ]
+    outputs:
+      python-version: ${{ matrix.python-version }}
+      uv-version: ${{ matrix.uv-version }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Enable caching
+        uses: actions/cache@v4
+        with:
+          path: |
+            .venv
+            dist/*
+          key: ${{ runner.os }}-uv-${{ github.workflow}}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-${{ github.workflow }}-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
       - name: Install uv
         uses: astral-sh/setup-uv@v3
         with:
@@ -29,43 +43,63 @@ jobs:
         run: uv sync --all-extras --dev
       - name: Build
         run: uv build
+
   deploy-fake:
     needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .venv
+            dist/*
+          key: ${{ runner.os }}-uv-${{ github.workflow}}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-${{ github.workflow }}-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ needs.setup.outputs.python-version }}
       - name: Install uv
         uses: astral-sh/setup-uv@v3
         with:
-          version: ${{ matrix.uv-version }}
-      - name: Build
-        run: uv build
+          version: ${{ needs.setup.outputs.uv-version }}
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
       - name: Publish to Fake PyPi
-        run: uvx twine upload -r testpypi dist/*
+        run: uv run twine upload -r testpypi dist/*
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.TEST_PYPI_TOKEN }}
+
   deploy:
     needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: | 
+            .venv
+            dist/*
+          key: ${{ runner.os }}-uv-${{ github.workflow}}-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-${{ github.workflow }}-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ needs.setup.outputs.python-version }}
       - name: Install uv
         uses: astral-sh/setup-uv@v3
         with:
-          version: ${{ matrix.uv-version }}
-      - name: Build
-        run: uv build
+          version: ${{ needs.setup.outputs.uv-version }}
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
       - name: Publish to PyPi
-        run: uvx twine upload dist/*
+        run: uv run twine upload dist/*
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}

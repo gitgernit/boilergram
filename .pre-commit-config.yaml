@@ -11,3 +11,5 @@ repos:
       - id: isort
         name: isort (python)
         args: [ --check-only ]
+
+# Adding pytest as a hook is too opinionated so we'll abstain from it
