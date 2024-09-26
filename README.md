@@ -4,6 +4,10 @@
 ![PyPI - Version](https://img.shields.io/pypi/v/boilergram)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/boilergram)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boilergram)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/gitgernit/boilergram/test-python-code.yml)
+![Codecov](https://img.shields.io/codecov/c/github/gitgernit/boilergram)
+
+
 
 ## Introduction
 
